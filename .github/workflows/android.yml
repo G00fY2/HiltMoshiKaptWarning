@@ -20,7 +20,7 @@ jobs:
           distribution: 'zulu'
           java-version: '17'
           cache: 'gradle'
-      - name: Accept licenses for all available packages
-        run: yes 2>/dev/null | sudo ${ANDROID_HOME}/tools/bin/sdkmanager --licenses >/dev/null
-      - name: Run gradle tasks
-        run: ./gradlew assembleDebug --stacktrace --no-configuration-cache --rerun-tasks
+      - name: Init gradle
+        run: ./gradlew tasks --group=build
+      - name: Run assemble task
+        run: ./gradlew assembleDebug --stacktrace --no-configuration-cache
