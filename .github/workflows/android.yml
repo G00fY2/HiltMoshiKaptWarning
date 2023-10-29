@@ -23,4 +23,4 @@ jobs:
       - name: Accept licenses for all available packages
         run: yes 2>/dev/null | sudo ${ANDROID_HOME}/tools/bin/sdkmanager --licenses >/dev/null
       - name: Run gradle tasks
-        run: ./gradlew assembleDebug
+        run: ./gradlew assembleDebug --stacktrace --no-configuration-cache --rerun-tasks
