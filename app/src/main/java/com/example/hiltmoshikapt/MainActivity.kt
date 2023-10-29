@@ -1,5 +1,7 @@
 package com.example.hiltmoshikapt
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -13,9 +15,17 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.hiltmoshikapt.ui.theme.HiltMoshiKaptTheme
 import com.example.hiltmoshikapt.ui.theme.MoshiTest
 import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.qualifiers.ApplicationContext
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+    // https://github.com/google/dagger/issues/3601
+    @Inject
+    @ApplicationContext
+    lateinit var injectedContext: Context
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
