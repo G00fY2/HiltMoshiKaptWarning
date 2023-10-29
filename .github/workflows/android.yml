@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  build_and_detekt:
+  build:
     name: Build app
     runs-on: ubuntu-latest
 
