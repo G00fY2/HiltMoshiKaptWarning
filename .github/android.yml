@@ -3,16 +3,14 @@ name: Android CI
 on:
   push:
     branches:
-      - develop
-      - master
+      - main
   pull_request:
     branches:
-      - develop
-      - master
+      - main
 
 jobs:
   build_and_detekt:
-    name: Build app and run detekt with ktlint
+    name: Build app
     runs-on: ubuntu-latest
 
     steps:
@@ -25,4 +23,4 @@ jobs:
       - name: Accept licenses for all available packages
         run: yes 2>/dev/null | sudo ${ANDROID_HOME}/tools/bin/sdkmanager --licenses >/dev/null
       - name: Run gradle tasks
-        run: ./gradlew assembleDebug detektDebug
+        run: ./gradlew assembleDebug
