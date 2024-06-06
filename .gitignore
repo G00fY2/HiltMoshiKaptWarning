@@ -244,3 +244,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# Directory for Kotlin data in Gradle projects
+.kotlin/
